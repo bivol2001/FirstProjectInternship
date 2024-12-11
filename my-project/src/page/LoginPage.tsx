@@ -17,17 +17,17 @@ const LoginPage = () => {
   const login1 = async () => {
     try {
       const res = await login({ username, password });
-      if (res.accessToken) {
-        localStorage.setItem("accessToken", res.accessToken);
-        localStorage.setItem("refreshToken", res.refreshToken);
+      if (res.token) {
+        localStorage.setItem("accessToken", res.token);
         navigate("/");
       } else {
-        alert("Verifica datele");
+        alert("Invalid credentials");
       }
     } catch (error) {
       console.error("Login error", error);
     }
   };
+
 
   return (
     <div>
@@ -57,7 +57,7 @@ const LoginPage = () => {
               <p className="register-board-text">Password:</p>
             </span>
             <input
-              type="text"
+              type="password"
               className="register-board-input"
               value={password}
               onChange={(e) => {

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://random-data-api.com/api/v2/",
+  baseURL: "https://reqres.in/",
   headers: {
     authorization: "Bearer " + localStorage.getItem("accessToken"),
   },
@@ -23,3 +23,4 @@ api.interceptors.request.use(
 
 
 export default api;
+

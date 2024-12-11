@@ -5,9 +5,9 @@ import Navbar from "../components/Navbar";
 
 export interface userInterface{
   email: string,
-  firstName: string,
-  lastName: string,
-  phoneNumber: string,
+  firstName?: string,
+  lastName?: string,
+  phoneNumber?: string,
   password:string
 }
 
@@ -18,20 +18,14 @@ const RegisterPage = () => {
   const [phoneNumber, setInputPhone] = useState<string>("");
   const [password, setInputPassword] = useState<string>("");
 
-  const register = async () => {
-    try {
-     await newUser(
-        {email,
-        firstName,
-        lastName,
-        phoneNumber,
-        password}
-      );
-      console.log("Succes");
-    } catch (error) {
-      console.log("Error");
-    }
-  };
+const register: () => Promise<void> = async () => {
+  try {
+    await newUser({ email, password });
+    console.log("Registration successful");
+  } catch (error) {
+    console.error("Registration error", error);
+  }
+};
 
   return (
     <div>
@@ -100,7 +94,7 @@ const RegisterPage = () => {
               <p className="register-board-text">Password:</p>
             </span>
             <input
-              type="text"
+              type="password"
               className="register-board-input"
               value={password}
               onChange={(e) => {
