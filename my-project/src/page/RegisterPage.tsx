@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../Style/style.css";
 import { newUser } from "../api/request";
-import Navbar from "../components/Navbar";
+import {useNavigate } from "react-router-dom";
 
 export interface userInterface{
   email: string,
@@ -12,6 +12,7 @@ export interface userInterface{
 }
 
 const RegisterPage = () => {
+  const navigate = useNavigate()
   const [email, setInputEmail] = useState<string>("");
   const [firstName, setInputFirstName] = useState<string>("");
   const [lastName, setInputLastName] = useState<string>("");
@@ -21,6 +22,7 @@ const RegisterPage = () => {
 const register: () => Promise<void> = async () => {
   try {
     await newUser({ email, password });
+    navigate("/login")
     console.log("Registration successful");
   } catch (error) {
     console.error("Registration error", error);
@@ -29,7 +31,6 @@ const register: () => Promise<void> = async () => {
 
   return (
     <div>
-      <Navbar />
       <div className="register-board-container">
         <div className="register-board-form-container">
           <div className="register-board-form-title">
@@ -104,7 +105,7 @@ const register: () => Promise<void> = async () => {
           </div>
           <div className="register-form-div-forgout"></div>
           <div className="register-form-div-btn">
-            <div className="register-form-btn" onClick={()=>{register()}}>
+            <div className="register-form-btn" onClick={() => { register()}}>
               Register
             </div>
           </div>

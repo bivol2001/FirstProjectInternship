@@ -1,9 +1,9 @@
 import React from "react";
-import "../Style/HomePage.css"
+import "../Style/HomePage.css";
 
-interface HomePageCards{
-    description: string
-    price:string
+interface HomePageCards {
+  description: string;
+  price: string;
 }
 
 const HomePageCards = [
@@ -28,25 +28,21 @@ const HomePageCards = [
 ];
 
 const Cards = () => {
+  return HomePageCards.map((card, index) => {
     return (
-        HomePageCards.map((card,index) => {
-            return (
-              <div className="homepage-board-card">
-                <div>
-                  <img src="" alt="" />
-                    </div>
-                    
-                <div>
-                    
-                  <p className="card-description">{card.title}</p>
-                  <p className="card-description">{card.description}</p>
-                        <p className="card-price">{card.price}</p>
-                  <div className="card-btn">Add</div>
-                </div>
-              </div>
-            );
-        })
+      <div className="homepage-board-card">
+        <div>
+          <img src="" alt="" />
+        </div>
+        <div>
+          <p className="card-description">{card.title}</p>
+          <p className="card-description">{card.description}</p>
+          <p className="card-price">{card.price}</p>
+          <div className="card-btn">Add</div>
+        </div>
+      </div>
     );
-}
+  });
+};
 
 export default Cards;

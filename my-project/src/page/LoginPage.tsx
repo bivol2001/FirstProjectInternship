@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../Style/style.css";
 import { login } from "../api/request";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
 
 export interface userLoginInterface {
   username: string;
@@ -25,13 +24,12 @@ const LoginPage = () => {
       }
     } catch (error) {
       console.error("Login error", error);
-    }
+    }    
   };
 
 
   return (
     <div>
-      <Navbar />
       <div className="register-board-container">
         <div className="register-board-form-container">
           <div className="register-board-form-title">
@@ -67,7 +65,14 @@ const LoginPage = () => {
           </div>
           <div className="register-form-div-forgout">
             <span className="register-form-forgout">
-              <p className="register-form-forgout">Forgout password</p>
+              <p
+                className="register-form-forgout"
+                onClick={() => {
+                  navigate("/forgout");
+                }}
+              >
+                Forgout password?
+              </p>
             </span>
           </div>
           <div className="register-form-div-btn">
@@ -75,9 +80,17 @@ const LoginPage = () => {
               className="register-form-btn"
               onClick={() => {
                 login1();
-              }}
+              }} 
             >
               Login
+            </div>
+            <div
+              className="register-form-div-btn-create"
+              onClick={() => {
+                navigate("/register");
+              }}
+            >
+              Create a account
             </div>
           </div>
         </div>
