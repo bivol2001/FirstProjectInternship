@@ -1,32 +1,35 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import { forgot } from "../api/request";
 
 export interface forgoutPasswordInterface {
   username: string;
   password: string;
     password2?: string;
-    res:void
 }
 
-const ForgoutPassword = () => {
+const ForgotPassword = () => {
   const navigate = useNavigate();
   const [username, setIsEmail] = useState("");
   const [password, setIsPassword1] = useState("");
   const [password2, setIsPassword2] = useState("");
 
-// const forgout = async () => {
-//     try {
-//       const res = await forgout();
-//     if (res) {
-//       console.log("User update success", res);
-//     } else {
-//       console.log("Reset password error");
-//     }
-//   } catch (error) {
-//     console.error("An error occurred:", error);
-//   }
-// };
+  const forgot1 = async () => {
+    if (password !== password2) {
+      alert("The passwords dont match!");
+      return;
+    }
+
+    try {
+      const response = await forgot({ username, password });
+      if (response) {
+        navigate("/login");
+      }
+    } catch (error) {
+      alert("Error")
+    }
+  };
 
   return (
 
@@ -79,7 +82,7 @@ const ForgoutPassword = () => {
             />
           </div>
           <div className="register-form-div-btn">
-            <div className="register-form-btn" onClick={() => {}}>
+            <div className="register-form-btn" onClick={() => {forgot1()}}>
               Reset
             </div>
           </div>
@@ -89,4 +92,4 @@ const ForgoutPassword = () => {
   );
 };
 
-export default ForgoutPassword;
+export default ForgotPassword;

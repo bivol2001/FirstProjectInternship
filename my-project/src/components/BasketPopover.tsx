@@ -4,19 +4,19 @@ import CardBasket from "./CardBasket";
 const BasketPopover = ({isPopover,setIsPopover}:any) => {
     return (
       <div className="container-background-and-popover">
-          <div className="container-popover">
-            <div className="container-popover-data">
-              <span>Basket</span>
-              <CardBasket/>
-            </div>
+        <div className="container-popover">
+          <div className="container-popover-data">
+            <span>Basket</span>
+            <CardBasket />
           </div>
+            <div>Total:</div>
+        </div>
         <div
           className="background-popover"
           onClick={() => {
             setIsPopover(!isPopover);
           }}
-        >
-        </div>
+        ></div>
       </div>
     );
 };
