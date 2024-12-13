@@ -8,8 +8,8 @@ const BasketPopover = ({isPopover,setIsPopover}:any) => {
           <div className="container-popover-data">
             <span>Basket</span>
             <CardBasket />
+            <div className="container-popover-data-total">Total:</div>
           </div>
-            <div>Total:</div>
         </div>
         <div
           className="background-popover"
