@@ -27,6 +27,18 @@ const CardBasket = () => {
           <div>Description</div>
           <div>Price</div>
         </div>
+        <div className="card-basket-div">
+          <img src="" alt="" />
+          <div>Title</div>
+          <div>Description</div>
+          <div>Price</div>
+        </div>
+        <div className="card-basket-div">
+          <img src="" alt="" />
+          <div>Title</div>
+          <div>Description</div>
+          <div>Price</div>
+        </div>
       </div>
     );
 }

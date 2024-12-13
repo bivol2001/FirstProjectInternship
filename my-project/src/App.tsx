@@ -3,7 +3,7 @@ import RegisterPage from "./page/RegisterPage";
 import LoginPage from "./page/LoginPage";
 import Page404 from "./page/Page404";
 import HomePage from "./page/HomePage";
-import ForgoutPassword from "./page/ForgoutPassword";
+import ForgoutPassword from "./page/ForgotPassword";
 import { useEffect } from "react";
 import { authRoutes } from "./api/AuthRoutes";
 
