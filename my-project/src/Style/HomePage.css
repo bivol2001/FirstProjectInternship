@@ -78,17 +78,58 @@ body {
 }
 
 .homepage-board-card {
+  display: flex;
+  text-align: center;
   width: 250px;
   background-color: white;
   border-radius: 9px;
   padding: 10px 5px;
+
 }
 
 .homepage-container-board-card {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 20px;
   padding: 10px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.card-quantity-input{
+  width: 20px;
+  text-align: center;
+  border: 0;
+}
+.card-quantity-input:focus{
+outline: none;}
+
+.card-quantity-btn{
+  width: 25px;
+  height: 21px;
+  background-color: #c7c7c764;
+  cursor: pointer;
+}
+
+.div-card-quantity{
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+
+.card-div-price-btn{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+height: 50px;
+}
+
+.card-price{
+  font-size: 17px;
 }
 
 .card-btn {
@@ -153,6 +194,11 @@ body {
   background-color: #e2e2e244;
   width: 230px;
   border-radius: 4px;
+}
+
+.container-popover-data-total{
+  align-self: end;
+  margin: 0 60px;
 }
 
 .card-basket-container {

@@ -4,19 +4,11 @@ import LoginPage from "./page/LoginPage";
 import Page404 from "./page/Page404";
 import HomePage from "./page/HomePage";
 import ForgoutPassword from "./page/ForgotPassword";
-import { useEffect } from "react";
-import { authRoutes } from "./api/AuthRoutes";
+import ProtectedRoutes from "./AuthGuards/AuthGuard";
+
 
 const App = () => {
-  const navigate = useNavigate();
-  const accessToken = localStorage.getItem("accessToken");
 
-  useEffect(() => {
-    if (authRoutes.includes(location.pathname) && !accessToken) {
-      navigate("/login");
-    }
-    console.log(location.pathname);
-  }, [location]);
 
   return (
     <div>
@@ -25,7 +17,9 @@ const App = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/forgout" element={<ForgoutPassword />} />
         <Route path="*" element={<Page404 />} />
-        <Route path="/" element={<HomePage />} />
+        <Route element={<ProtectedRoutes />}>
+        <Route path="/" element={<HomePage/>} />
+          </Route >
       </Routes>
     </div>
   );
